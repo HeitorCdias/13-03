@@ -27,6 +27,10 @@ Nome inicial: “Você”. Localização inicial: São Paulo. Mude **cidade, lat
 
 As configurações ficam em `config.json`, ignorado pelo Git. Faça backup desse arquivo antes de mover o projeto. Para restaurar os padrões, pare o servidor e mova esse arquivo para um backup. Não há dados fictícios de agenda nem previsão simulada.
 
+### Testar com o monitor em pé no Windows
+
+Gire fisicamente o monitor apenas se o suporte permitir. No Windows, abra **Configurações → Sistema → Tela**, selecione o monitor correto e mude **Orientação da tela** para **Retrato** (ou **Retrato invertido**, conforme o lado da rotação). Confirme a alteração. No navegador, abra o painel e pressione **F11** para ocupar toda a tela. O painel usa toda a largura e altura disponíveis, com os elementos em coluna e tamanhos que acompanham a resolução. Girar apenas o monitor fisicamente não altera a orientação da imagem: é necessário mudar essa configuração do Windows.
+
 ## Instalar no Raspberry Pi 3
 
 Use Raspberry Pi OS **com desktop**, preferencialmente uma versão atual. Tenha Raspberry Pi 3, fonte adequada, microSD, conexão de rede para o clima, monitor HDMI, espelho semitransparente e moldura ventilada. Monte e ventile o conjunto conforme as especificações dos fabricantes.
@@ -55,7 +59,7 @@ bash scripts/instalar-autostart.sh
 
 O instalador cria `~/.config/systemd/user/espelho.service` e `~/.config/autostart/espelho.desktop` (ou em `XDG_CONFIG_HOME`, se definido), sem sobrescrever arquivos existentes. Ativa o servidor imediatamente e abre Chromium no próximo login gráfico. Configure login automático no desktop pelo `raspi-config` se quiser iniciar sem intervenção após ligar. A inicialização do navegador depende do suporte XDG autostart da sessão gráfica.
 
-Em sessões X11, o script tenta desativar o descanso de tela usando `xset`. Em Wayland, desative o apagamento de tela nas preferências do Raspberry Pi OS; não depende de `xset`. Configure rotação e resolução do monitor pelas preferências do sistema. O painel usa orientação vertical, como um celular. No computador, fica centralizado em uma faixa estreita; no celular, aproveita a largura da tela. Para um monitor fisicamente girado, configure também a orientação vertical nas preferências do sistema operacional.
+Em sessões X11, o script tenta desativar o descanso de tela usando `xset`. Em Wayland, desative o apagamento de tela nas preferências do Raspberry Pi OS; não depende de `xset`. Configure rotação e resolução do monitor pelas preferências do sistema. O painel usa uma coluna vertical que preenche a tela disponível, com textos dimensionados conforme a resolução. Para um monitor fisicamente girado, configure também a orientação vertical nas preferências do sistema operacional.
 
 Diagnóstico e remoção (no Pi):
 
