@@ -55,7 +55,7 @@ bash scripts/instalar-autostart.sh
 
 O instalador cria `~/.config/systemd/user/espelho.service` e `~/.config/autostart/espelho.desktop` (ou em `XDG_CONFIG_HOME`, se definido), sem sobrescrever arquivos existentes. Ativa o servidor imediatamente e abre Chromium no próximo login gráfico. Configure login automático no desktop pelo `raspi-config` se quiser iniciar sem intervenção após ligar. A inicialização do navegador depende do suporte XDG autostart da sessão gráfica.
 
-Em sessões X11, o script tenta desativar o descanso de tela usando `xset`. Em Wayland, desative o apagamento de tela nas preferências do Raspberry Pi OS; não depende de `xset`. Configure rotação e resolução do monitor pelas preferências do sistema. O painel se adapta a telas na vertical e horizontal.
+Em sessões X11, o script tenta desativar o descanso de tela usando `xset`. Em Wayland, desative o apagamento de tela nas preferências do Raspberry Pi OS; não depende de `xset`. Configure rotação e resolução do monitor pelas preferências do sistema. O painel usa orientação vertical, como um celular. No computador, fica centralizado em uma faixa estreita; no celular, aproveita a largura da tela. Para um monitor fisicamente girado, configure também a orientação vertical nas preferências do sistema operacional.
 
 Diagnóstico e remoção (no Pi):
 
