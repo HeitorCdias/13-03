@@ -1,0 +1,7 @@
+.env
+.venv/
+.pio/
+__pycache__/
+data/
+firmware/esp32_cam/include/secrets.h
+*.log

@@ -1,0 +1,22 @@
+﻿origem,pino_origem,destino,pino_destino,nivel,observacao
+Uno,5V,DHT22,VCC,5 V,Conferir serigrafia; não assumir ordem do módulo
+Uno,GND,DHT22,GND,GND,
+Uno,D2,DHT22,DATA,Sinal 5 V,"Pull-up 10k DATA a 5V, se não houver no módulo"
+Uno,5V,PIR HC-SR501,VCC,5 V,Lente fora do vidro
+Uno,GND,PIR HC-SR501,GND,GND,
+PIR HC-SR501,OUT,Uno,D3,"Sinal 3,3 V",
+Uno,5V,LDR,Terminal 1,5 V,
+LDR,Terminal 2,Uno,A0,Analógico,Nesse nó colocar resistor 10k a GND
+Uno,D9,IRLZ44N,Gate,PWM 5 V,Resistor 220 ohm em série; 10k Gate–Source
+Fonte 12 V,+12V,Fita LED,+,12 V,Fusível em série no positivo
+Fita LED,−,IRLZ44N,Drain,Retorno chaveado 12 V,
+IRLZ44N,Source,Fonte 12 V,−,GND,Unir também ao GND Uno
+Raspberry Pi,USB,Uno,USB B,USB 5 V + dados,Cabo com dados
+Raspberry Pi,micro-HDMI,Monitor,HDMI,Vídeo,Monitor com fonte própria
+Raspberry Pi,USB,Moldura IR,USB,USB HID,Conferir corrente e suporte Linux
+Fonte câmera 5 V,+5V,ESP32-CAM,5V,5 V,Chave física em série; não alimentar 3V3 com 5V
+Fonte câmera 5 V,−,ESP32-CAM,GND,GND,
+USB-UART,"TX 3,3V",ESP32-CAM,U0R,"Sinal 3,3 V",Somente durante gravação
+USB-UART,"RX 3,3V",ESP32-CAM,U0T,"Sinal 3,3 V",Somente durante gravação
+USB-UART,GND,ESP32-CAM,GND,GND,Não ligar VCC do adaptador
+ESP32-CAM,IO0,ESP32-CAM,GND,Bootloader,Somente para gravar; retirar e reiniciar depois

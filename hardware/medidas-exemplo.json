@@ -1,0 +1,19 @@
+{
+  "unidade": "mm",
+  "aviso": "Exemplo para planejamento, não liberar corte antes de medir o monitor e a moldura IR comprados.",
+  "monitor_corpo_largura": 310,
+  "monitor_corpo_altura": 530,
+  "monitor_corpo_profundidade": 45,
+  "area_ativa_largura": 268,
+  "area_ativa_altura": 477,
+  "folga_monitor_por_lado": 8,
+  "largura_sarrafo_frontal": 40,
+  "sobreposicao_rebaixo": 12,
+  "folga_vidro_por_lado": 1,
+  "espessura_frente": 18,
+  "espessura_parede": 18,
+  "profundidade_corpo": 92,
+  "espessura_tampa": 6,
+  "espessura_vidro": 4,
+  "profundidade_rebaixo": 6
+}

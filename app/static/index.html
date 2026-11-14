@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Espelho Touch</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<main class="mirror">
+  <header class="topbar"><span class="brand">◈ ESPELHO <b>TOUCH</b></span><span id="connection">Conectando…</span></header>
+  <section class="hero" aria-label="Relógio"><p class="overline" id="date">Carregando data</p><div class="clock"><span id="clock">--:--</span><span id="seconds">--</span></div><h1 id="greeting">Bem-vindo.</h1></section>
+  <div class="cards">
+    <section class="card" aria-label="Clima externo"><p class="overline">Lá fora · <span id="city">—</span></p><div class="metric"><span id="weather-icon">◌</span> <strong id="outdoor">—°</strong></div><p id="weather-label">Consultando clima</p><p class="subtle" id="weather-detail">Previsão via Open-Meteo</p><p class="small" id="weather-status" role="status"></p></section>
+    <section class="card" aria-label="Sensores internos"><p class="overline">Aqui dentro · Arduino</p><div class="metric"><strong id="indoor">—°</strong><span class="humidity" id="humidity">—%</span></div><p id="presence">Aguardando sensores</p><p class="subtle" id="hardware-detail">Conecte o Arduino por USB</p><p class="small" id="sensor-status" role="status"></p></section>
+  </div>
+  <section class="agenda"><div class="section-heading"><h2>Seu próximo passo</h2><button class="text-button" data-open="settings">Editar agenda ↗</button></div><div id="agenda-list"><p class="subtle">Carregando agenda…</p></div></section>
+  <section class="inspiration"><span class="spark">✧</span><p id="message">Seu tempo merece cuidado.</p><span class="overline">Respire. Este momento é seu.</span></section>
+  <section id="timer-strip" class="timer-strip" hidden aria-live="polite"><span>Temporizador</span><strong id="timer-display">05:00</strong><button id="timer-pause">Pausar</button><button id="timer-stop">Encerrar</button></section>
+  <nav class="toolbar" aria-label="Controles touch"><button data-open="camera"><span aria-hidden="true">◎</span>Câmera</button><button data-open="light"><span aria-hidden="true">☀</span>Iluminação</button><button data-open="timer"><span aria-hidden="true">◷</span>Timer</button><button data-open="settings"><span aria-hidden="true">⚙</span>Ajustes</button><button id="fullscreen"><span aria-hidden="true">⛶</span>Tela cheia</button></nav>
+  <p id="notice" class="notice" role="status" aria-live="polite"></p>
+</main>
+<dialog id="camera"><header><h2>Câmera local</h2><button data-close aria-label="Fechar câmera">✕</button></header><p>A foto só é solicitada quando você toca no botão. Não é gravada no disco. Desligue a alimentação do ESP32-CAM para bloquear fisicamente a câmera.</p><div class="camera-view"><img id="photo" alt="Foto solicitada à câmera local" hidden><span id="camera-placeholder">ESP32-CAM · OV2640</span></div><button class="primary" id="capture">Capturar agora</button><p id="camera-status" role="status"></p></dialog>
+<dialog id="light"><header><h2>Iluminação</h2><button data-close aria-label="Fechar iluminação">✕</button></header><p>Modo automático: presença e luz ambiente controlam o LED. Comando manual retorna ao automático após 15 minutos.</p><label for="brightness">Brilho manual <output id="brightness-value">0%</output></label><input id="brightness" type="range" min="0" max="255" value="0"><div class="actions"><button id="light-manual" class="primary">Aplicar brilho</button><button id="light-auto">Modo automático</button><button id="light-off">Apagar</button></div><p id="light-status" role="status"></p></dialog>
+<dialog id="timer"><header><h2>Um tempo para você</h2><button data-close aria-label="Fechar temporizador">✕</button></header><label for="minutes">Duração em minutos (1 a 180)</label><input id="minutes" type="number" min="1" max="180" value="5"><button id="timer-start" class="primary">Iniciar temporizador</button><p>O aviso é visual. Mantenha a página aberta; recarregar a página encerra o temporizador.</p></dialog>
+<dialog id="settings"><header><h2>Seu espelho</h2><button data-close aria-label="Fechar ajustes">✕</button></header><form id="settings-form">
+<label for="nome">Seu nome</label><input id="nome" maxlength="100" required>
+<label for="cidade">Cidade (rótulo)</label><input id="cidade" maxlength="100" required>
+<div class="form-grid"><div><label for="latitude">Latitude</label><input id="latitude" type="number" min="-90" max="90" step="any" required></div><div><label for="longitude">Longitude</label><input id="longitude" type="number" min="-180" max="180" step="any" required></div></div>
+<label for="fuso">Fuso horário IANA</label><input id="fuso" maxlength="100" placeholder="America/Sao_Paulo" required>
+<label for="messages">Mensagens (uma por linha, até 30)</label><textarea id="messages" rows="3"></textarea>
+<label class="check"><input id="repouso" type="checkbox"> Escurecer painel após 60 segundos sem presença (toque para acordar)</label><p class="small">A tela permanece ligada. Com sensor desconectado, o repouso automático é desativado.</p>
+<h3>Agenda manual</h3><p class="small">Horários no fuso configurado. Até 100 eventos; o painel mostra os próximos cinco.</p><div id="event-editors"></div><button type="button" id="add-event">+ Compromisso</button><div class="actions"><button class="primary" id="save" type="submit">Salvar ajustes</button></div><p id="settings-status" role="status"></p>
+</form></dialog>
+<button id="wake-screen" hidden aria-label="Acordar espelho">Toque para acordar</button>
+</body></html>
