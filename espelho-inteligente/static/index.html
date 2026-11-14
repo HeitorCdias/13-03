@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Espelho inteligente</title><link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body class="mirror">
+  <main class="dashboard">
+    <section class="clock-panel" aria-label="Relógio">
+      <p class="eyebrow" id="date">Carregando data…</p>
+      <div class="clock"><span id="time">--:--</span><span id="seconds">--</span></div>
+      <p class="greeting" id="greeting">Bem-vindo.</p>
+    </section>
+    <section class="weather-panel" aria-label="Previsão do tempo">
+      <p class="eyebrow"><span class="location-mark">⌖</span> <span id="city">Clima</span></p>
+      <div class="temperature"><span id="weather-icon" aria-hidden="true">◌</span><span id="temperature">--°</span></div>
+      <p id="condition">Consultando previsão…</p>
+      <p class="weather-details" id="weather-details">Umidade — · Sensação —</p>
+      <div class="forecast" id="forecast"></div>
+      <p class="status" id="weather-status" role="status"></p>
+    </section>
+    <section class="agenda-panel" aria-label="Agenda">
+      <p class="eyebrow">Sua agenda <span class="line"></span></p>
+      <div id="agenda"><p class="muted">Carregando compromissos…</p></div>
+    </section>
+    <section class="message-panel" aria-label="Mensagem do dia">
+      <span class="spark" aria-hidden="true">✧</span>
+      <p id="message">Um momento para você.</p>
+      <span class="eyebrow">Respire. Você está aqui.</span>
+    </section>
+  </main>
+  <p id="app-status" class="app-status" role="status"></p>
+  <nav class="controls" aria-label="Controles"><button id="fullscreen" title="Tela cheia (F)">Tela cheia</button><a href="/config.html">Configurar</a></nav>
+</body>
+</html>

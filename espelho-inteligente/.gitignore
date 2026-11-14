@@ -1,0 +1,4 @@
+config.json
+.config-*.tmp
+__pycache__/
+*.log

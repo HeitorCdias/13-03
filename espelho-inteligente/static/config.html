@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Configurar espelho</title><link rel="stylesheet" href="/style.css"><script src="/config.js" defer></script></head>
+<body class="settings-page"><main class="settings">
+<header><a href="/">← Voltar ao espelho</a><h1>Seu espelho, do seu jeito.</h1><p>Ajuste sua localização, mensagens e próximos compromissos. As alterações ficam salvas neste dispositivo.</p></header>
+<form id="settings-form">
+<fieldset><legend>Você e sua localização</legend>
+<label for="nome">Como podemos chamar você?</label><input id="nome" maxlength="100" required>
+<label for="cidade">Cidade</label><input id="cidade" maxlength="100" required>
+<div class="row"><div><label for="latitude">Latitude</label><input id="latitude" type="number" min="-90" max="90" step="any" required></div><div><label for="longitude">Longitude</label><input id="longitude" type="number" min="-180" max="180" step="any" required></div></div>
+<label for="fuso">Fuso horário</label><input id="fuso" placeholder="America/Sao_Paulo" maxlength="100" required>
+<p>O clima usa as coordenadas, não o nome da cidade. Padrão: São Paulo. A previsão é fornecida pela Open-Meteo e precisa de internet; não mede a temperatura do ambiente interno.</p>
+</fieldset>
+<fieldset><legend>Mensagens</legend><label for="mensagens">Uma mensagem por linha (até 30, com 250 caracteres cada)</label><textarea id="mensagens"></textarea><p>As mensagens se alternam a cada 30 segundos.</p></fieldset>
+<fieldset><legend>Agenda manual</legend><p>Informe os horários no fuso escolhido acima. O espelho mostra os próximos cinco compromissos.</p><div id="events"></div><button class="secondary" id="add-event" type="button">+ Adicionar compromisso</button></fieldset>
+<button id="save" type="submit" disabled>Salvar alterações</button><p id="save-status" role="status" aria-live="polite">Carregando configuração…</p>
+</form></main></body></html>
